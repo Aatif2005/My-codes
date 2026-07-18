@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-string reverseString(string str) {
+string reverseString(string str)  {
     // now using loops
     int len = str.length();
     string reversed = "";

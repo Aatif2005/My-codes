@@ -21,7 +21,7 @@ int numOfSubarrays(vector<int>& arr, int k, int threshold) {
         }
         sum = sum - arr[low-1];
         sum = sum + arr[high];
-        if (sum/k >= threshold) {
+        if (sum/k >= threshold) { 
             count++;
         }
     }

@@ -53,6 +53,6 @@ int main() {
     print(head);
     insertAtTail(tail,11);
     print(tail);
-    insertAtPosition(head,1,5);
+    insertAtPosition(head,tail,1,5);
     print(head);
 }

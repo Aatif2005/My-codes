@@ -19,7 +19,7 @@ void insertAtTail(Node* &tail, int data) {
     tail->next = ptr;
     tail = ptr;
 }
-void insertAtPosition(Node* &head,int position, int data) {
+void insertAtPosition(  Node* &tail, Node* &head,int position, int data) {
     if (position == 1) {
         insertAtHead(head, data);
         return;

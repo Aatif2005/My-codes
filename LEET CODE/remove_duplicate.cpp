@@ -9,32 +9,54 @@ Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
 Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, and 4
 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores).*/
+#include <iostream>
+#include <vector>
+using namespace std;
 
 class Solution {
-    public:
+public:
     int removeDuplicates(vector<int>& nums) {
         int n = nums.size();
 
+        // If the array is empty
         if (n == 0) {
             return 0;
         }
 
-        int left = 0;
-        int right = 1;
-        int unique = 1;
+        int left = 0;      // Points to the last unique element
+        int right = 1;     // Traverses the array
+        int unique = 1;    // Count of unique elements
 
         while (right < n) {
-            if (nums[right] == nums[right - 1]) {
-                right++;
-                continue;
-            } else {
+            // If current element is different from the previous one
+            if (nums[right] != nums[right - 1]) {
                 nums[left + 1] = nums[right];
                 left++;
-                right++;
                 unique++;
             }
+
+            right++;
         }
 
         return unique;
     }
 };
+
+int main() {
+    Solution obj;
+
+    vector<int> nums = {1, 1, 2, 2, 3, 4, 4, 5};
+
+    int k = obj.removeDuplicates(nums);
+
+    cout << "Number of unique elements: " << k << endl;
+
+    cout << "Array after removing duplicates: ";
+    for (int i = 0; i < k; i++) {
+        cout << nums[i] << " ";
+    }
+
+    cout << endl;
+
+    return 0;
+}

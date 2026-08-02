@@ -5,26 +5,44 @@ Return the indices of the two numbers index1 and index2, each incremented by one
 index2] of length 2.
 The tests are generated such that there is exactly one solution. You may not use the same element twice.
 Your solution must use only constant extra space.*/
+#include <iostream>
 #include <vector>
-class Solution {
-public:
-    vector<int> twoSum(vector<int>& numbers, int target) {
-        int n = numbers.size();
-        int left = 0;
-        int right = n-1;
-        int ans;
-        while(left < right) {
-            int sum = numbers[left] + numbers[right];
-            if(sum == target) {
-                return {left +1, right +1};
-            }
-            else if(sum < target) {
-                left++;
-            }
-            else {
-                right--;
-            }
+using namespace std;
+
+vector<int> twoSum(vector<int>& numbers, int target) {
+    int n = numbers.size();
+
+    int left = 0;
+    int right = n - 1;
+
+    while (left < right) {
+        int sum = numbers[left] + numbers[right];
+
+        if (sum == target) {
+            return {left + 1, right + 1};   // 1-based indexing
         }
-        return{};
+        else if (sum < target) {
+            left++;
+        }
+        else {
+            right--;
+        }
     }
-};
+
+    return {};
+}
+
+int main() {
+    vector<int> numbers = {2, 7, 11, 15};
+    int target = 9;
+
+    vector<int> result = twoSum(numbers, target);
+
+    if (!result.empty()) {
+        cout << "Indices are: " << result[0] << " " << result[1] << endl;
+    } else {
+        cout << "No pair found." << endl;
+    }
+
+    return 0;
+}

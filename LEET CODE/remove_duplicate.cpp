@@ -17,16 +17,12 @@ class Solution {
 public:
     int removeDuplicates(vector<int>& nums) {
         int n = nums.size();
-
-        // If the array is empty
         if (n == 0) {
             return 0;
         }
-
-        int left = 0;      // Points to the last unique element
-        int right = 1;     // Traverses the array
-        int unique = 1;    // Count of unique elements
-
+        int left = 0;
+        int right = 1;
+        int unique = 1;
         while (right < n) {
             // If current element is different from the previous one
             if (nums[right] != nums[right - 1]) {

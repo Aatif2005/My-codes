@@ -13,7 +13,7 @@ Explanation: The result cannot be 2, because [-2,-1] is not a subarray.*/
 #include <vector>
 using namespace std;
 int maxProduct(vector<int>& nums) {
-    int n = nums.size();
+     int n = nums.size();
     int maxEnding = nums[0];
     int minEnding = nums[0];
     int res = nums[0];

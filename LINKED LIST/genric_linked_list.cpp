@@ -1,7 +1,5 @@
 #include <iostream>
 using namespace std;
-
-// Generic Node
 template <class T>
 struct Node {
     T data;
@@ -12,20 +10,15 @@ struct Node {
         next = NULL;
     }
 };
-
-// Generic Linked List
 template <class T>
 class LinkedList {
 private:
     Node<T>* head;
 
 public:
-    // Constructor
     LinkedList() {
         head = NULL;
     }
-
-    // Insert at end
     void insert(T value) {
         Node<T>* newNode = new Node<T>(value);
 
